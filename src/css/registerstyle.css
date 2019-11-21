@@ -1,0 +1,45 @@
+body  {
+  background-color: #ECECEC;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+}
+.div1{
+  margin: auto;
+  margin-top: 120px;
+  width: 350px;
+  height: 450px;
+  background-color: #FFFDFB;
+  border-color: #DCDAD8;
+}
+.sign_up{
+  position: fixed;
+  font-size: 22px;
+  font-family:'Comic Sans MS', cursive, sans-serif;
+  margin-left:10px;
+  margin-top: 5px;
+}
+.closebtn{
+  position: relative;
+  float:right;
+  margin-right: 4px;
+  margin-top: -4px;
+  font-size: 26px;
+}
+.closebtn:hover {
+  color: #f1f1f1;
+}
+.user_name{
+  position: fixed;
+  margin-top:50px;
+  margin-left:12px;
+  font-family:'Comic Sans MS', cursive, sans-serif;
+}
+.user_name_input{
+  position: fixed;
+  margin-top:75px;
+  margin-left:12px;
+  width: 200px;
+  border-radius: 3px;
+  outline-width: 0;
+}
