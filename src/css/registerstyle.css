@@ -1,45 +1,237 @@
-body  {
-  background-color: #ECECEC;
-  margin:0;
-  padding:0;
-  overflow:hidden;
+@media screen and (min-width:1124px){
+  body  {
+    background-color: #ECECEC;
+  }
+  h1{
+    font-size: 50px;
+    position: absolute;
+    margin-left:10px;
+    margin-top: 5px;
+  }
+  .div1{
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    margin-top: -320px;
+    margin-left: -330px;
+    width: 600px;
+    height: 540px;
+    background-color: #ffffff;
+  }
+  .icon{
+    position:absolute;
+    font-size:90px;
+    margin-top: 117px;
+    margin-left:20px;
+  }
+  .closebtn{
+    position: relative;
+    float:right;
+    margin-right: 4px;
+    margin-top: -4px;
+    font-size: 35px;
+  }
+
+  b{
+    margin-left:145px;
+  }
+  input {
+    margin-left: 145px;
+    width: 400px;
+  }
+  .user_name{
+    margin-top: 120px;
+  }
+  .user_name_input{
+    margin-top: 150px;
+  }
+  .user_email{
+    margin-top: 190px;
+  }
+  .user_email_input{
+    margin-top: 220px;
+  }
+  .first_name{
+    margin-top: 260px;
+  }
+  .user_first_name_input{
+    margin-top: 290px;
+    width: 175px;
+  }
+  .last_name{
+    margin-top: 260px;
+    margin-left: 370px;
+  }
+  .user_last_name_input{
+    margin-top: 290px;
+    margin-left: 370px;
+    width: 175px;
+  }
+  .user_password{
+    margin-top: 330px;
+  }
+  .user_passowrd_input{
+    margin-top: 360px;
+  }
+  .user_password_input_confirm{
+    margin-top: 400px;
+  }
+  .register_btn{
+    position: absolute;
+    margin-top: 470px;
+    margin-left: 260px;
+    font-size: 16px;
+    border-radius: 5px;
+    font-family:'Comic Sans MS', cursive, sans-serif;
+  }
+
 }
-.div1{
-  margin: auto;
-  margin-top: 120px;
-  width: 350px;
-  height: 450px;
-  background-color: #FFFDFB;
-  border-color: #DCDAD8;
+@media screen and (max-width: 1123px)and (min-width: 404px){
+  body  {
+    background-color: #ECECEC;
+  }
+  h1
+  {
+    font-size: 40px;
+    position: absolute;
+    margin-top: -14px;
+  }
+  .closebtn{
+    position: relative;
+    float:right;
+    margin-top: -30px;
+    font-size: 35px;
+  }
+  .icon{
+    visibility: hidden;
+  }
+  .user_name{
+    margin-top: 10px;
+  }
+  .user_name_input{
+    margin-top: 40px;
+  }
+  .user_email{
+    margin-top: 70px;
+  }
+  .user_email_input{
+    margin-top: 100px;
+  }
+  .first_name{
+    margin-top: 130px;
+  }
+  .user_first_name_input{
+    margin-top: 160px;
+    width: 175px;
+  }
+  .last_name{
+    margin-top: 130px;
+    margin-left: 275px;
+  }
+  .user_last_name_input{
+    margin-top: 160px;;
+    margin-left: 275px;
+    width: 175px;
+  }
+  .user_password{
+    margin-top: 190px;
+  }
+  .user_passowrd_input{
+    margin-top: 220px;
+  }
+  .user_password_input_confirm{
+    margin-top: 260px;
+  }
+  .register_btn{
+    position: absolute;
+    font-size: 16px;
+    margin-top: 300px;
+    border-radius: 5px;
+    font-family:'Comic Sans MS', cursive, sans-serif;
+  }
+
 }
-.sign_up{
-  position: fixed;
-  font-size: 22px;
+@media screen and (max-width: 403px){
+  body  {
+    background-color: #ECECEC;
+  }
+  h1
+  {
+    font-size: 26px;
+    position: absolute;
+    margin-top: -14px;
+  }
+  .closebtn{
+    position: relative;
+    float:right;
+    margin-top: -30px;
+    font-size: 35px;
+  }
+  .icon{
+    visibility: hidden;
+  }
+  .user_name{
+    margin-top: 10px;
+  }
+  .user_name_input{
+    margin-top: 40px;
+  }
+  .user_email{
+    margin-top: 70px;
+  }
+  .user_email_input{
+    margin-top: 100px;
+  }
+  .first_name{
+    margin-top: 130px;
+  }
+  .user_first_name_input{
+    margin-top: 160px;
+    width: 175px;
+  }
+  .last_name{
+    margin-top: 190px;
+  }
+  .user_last_name_input{
+    margin-top: 220px;;
+    width: 175px;
+  }
+  .user_password{
+    margin-top: 250px;
+  }
+  .user_passowrd_input{
+    margin-top: 280px;
+  }
+  .user_password_input_confirm{
+    margin-top: 320px;
+  }
+  .register_btn{
+    position: absolute;
+    font-size: 16px;
+    margin-top: 360px;
+    border-radius: 5px;
+    font-family:'Comic Sans MS', cursive, sans-serif;
+  }
+
+}
+h1{
   font-family:'Comic Sans MS', cursive, sans-serif;
-  margin-left:10px;
-  margin-top: 5px;
+  font-weight: normal;
 }
-.closebtn{
-  position: relative;
-  float:right;
-  margin-right: 4px;
-  margin-top: -4px;
-  font-size: 26px;
-}
+
 .closebtn:hover {
-  color: #f1f1f1;
+  color: #f10800;
 }
-.user_name{
-  position: fixed;
-  margin-top:50px;
-  margin-left:12px;
+b{
+  position: absolute;
   font-family:'Comic Sans MS', cursive, sans-serif;
+  font-size: 20px;
 }
-.user_name_input{
-  position: fixed;
-  margin-top:75px;
-  margin-left:12px;
-  width: 200px;
-  border-radius: 3px;
+input {
+  position: absolute;
   outline-width: 0;
+  border-radius: 3px;
+  padding: 2px;
+  font-size: 20px;
 }
+
