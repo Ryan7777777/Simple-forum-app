@@ -1,7 +1,35 @@
+h1{
+  font-family:'Comic Sans MS', cursive, sans-serif;
+  font-weight: normal;
+}
+
+.closebtn:hover {
+  color: #f10800;
+}
+b{
+  position: absolute;
+  font-family:'Comic Sans MS', cursive, sans-serif;
+  font-size: 20px;
+}
+input {
+  position: absolute;
+  outline-width: 0;
+  border-radius: 3px;
+  padding: 2px;
+  font-size: 20px;
+}
+.closebtn{
+  position: relative;
+  float:right;
+  font-size: 35px;
+}
+.register_btn{
+  position: absolute;
+  font-size: 16px;
+  border-radius: 5px;
+  font-family:'Comic Sans MS', cursive, sans-serif;
+}
 @media screen and (min-width:1124px){
-  body  {
-    background-color: #ECECEC;
-  }
   h1{
     font-size: 50px;
     position: absolute;
@@ -25,13 +53,9 @@
     margin-left:20px;
   }
   .closebtn{
-    position: relative;
-    float:right;
     margin-right: 4px;
     margin-top: -4px;
-    font-size: 35px;
   }
-
   b{
     margin-left:145px;
   }
@@ -77,19 +101,11 @@
     margin-top: 400px;
   }
   .register_btn{
-    position: absolute;
     margin-top: 470px;
     margin-left: 260px;
-    font-size: 16px;
-    border-radius: 5px;
-    font-family:'Comic Sans MS', cursive, sans-serif;
   }
-
 }
 @media screen and (max-width: 1123px)and (min-width: 404px){
-  body  {
-    background-color: #ECECEC;
-  }
   h1
   {
     font-size: 40px;
@@ -97,8 +113,6 @@
     margin-top: -14px;
   }
   .closebtn{
-    position: relative;
-    float:right;
     margin-top: -30px;
     font-size: 35px;
   }
@@ -143,18 +157,10 @@
     margin-top: 260px;
   }
   .register_btn{
-    position: absolute;
-    font-size: 16px;
     margin-top: 300px;
-    border-radius: 5px;
-    font-family:'Comic Sans MS', cursive, sans-serif;
   }
-
 }
 @media screen and (max-width: 403px){
-  body  {
-    background-color: #ECECEC;
-  }
   h1
   {
     font-size: 26px;
@@ -162,10 +168,7 @@
     margin-top: -14px;
   }
   .closebtn{
-    position: relative;
-    float:right;
     margin-top: -30px;
-    font-size: 35px;
   }
   .icon{
     visibility: hidden;
@@ -206,32 +209,6 @@
     margin-top: 320px;
   }
   .register_btn{
-    position: absolute;
-    font-size: 16px;
     margin-top: 360px;
-    border-radius: 5px;
-    font-family:'Comic Sans MS', cursive, sans-serif;
   }
-
 }
-h1{
-  font-family:'Comic Sans MS', cursive, sans-serif;
-  font-weight: normal;
-}
-
-.closebtn:hover {
-  color: #f10800;
-}
-b{
-  position: absolute;
-  font-family:'Comic Sans MS', cursive, sans-serif;
-  font-size: 20px;
-}
-input {
-  position: absolute;
-  outline-width: 0;
-  border-radius: 3px;
-  padding: 2px;
-  font-size: 20px;
-}
-

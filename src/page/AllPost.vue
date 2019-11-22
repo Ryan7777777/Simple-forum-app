@@ -1,5 +1,4 @@
 <template>
-  <body>
   <div class="div1">
     <div id="login" class="login" @keydown.esc="login_close">
       <a class="closebtn"  @click="login_close">&times;</a>
@@ -14,15 +13,15 @@
       <button class="login_btn">Log In</button>
     </div>
     <div id="search" class="search" @keydown.esc="search_close">
-      <input type="text"class="search_input" id="search_input"  name="search"  placeholder="Search..                              ESC to Exit   Enter to Search"@keydown.esc="search_close" >
+      <input type="text" class="search_input" id="search_input"  name="search"  placeholder="Search..                              ESC to Exit   Enter to Search" @keydown.esc="search_close" >
     </div>
-    <div id="newpost" class="newpost"@keydown.esc="newpost_close">
+    <div id="newpost" class="newpost" @keydown.esc="newpost_close">
       <a class="closebtn"  @click="newpost_close">&times;</a>
       <i class="material-icons" style="position:absolute;font-size:30px;margin-top:-48px;margin-left:10px">library_add</i>
       <a style="position: absolute;margin-top: -50px; margin-left: 48px;font-size:25px; font-family:'Comic Sans MS', cursive, sans-serif">New Post</a>
       <a style="position:relative;margin-top:-5px; margin-left:10px;font-size:15px; font-family:'Comic Sans MS', cursive, sans-serif">Topic</a>
       <input id="topic_input" class="topic_input" type="text">
-      <a style="position: relative;margin-left:10px;font-size:15px;font-size: 15px;font-family:'Comic Sans MS', cursive, sans-serif" >Content</a>
+      <a style="position: relative;margin-left:10px;font-size: 15px;font-family:'Comic Sans MS', cursive, sans-serif" >Content</a>
       <textarea rows="8" cols="50" class="cotent_input">
       </textarea>
       <button class="post_photo_upload_btn">Select photo</button>
@@ -41,7 +40,7 @@
         <i class="fa fa-lock" style="font-size:36px;"></i>
       </div>
       <div class="message_btn">
-        <i class="fa fa-comment" style="font-size:34px;margin-left: 26px;margin-top: -9px;" ></i>
+        <i class="fa fa-comment" style="font-size:34px;margin-left: 26px;margin-top: -9px;" @click="message_box" ></i>
       </div>
       <div class ="search_btn">
         <i class="fa fa-search" style="font-size:30px" @click="search_open"></i>
@@ -51,7 +50,7 @@
     <div class="div5"></div>
     </div>
   </div>
-  </body>
+
 </template>
 
 <script>
@@ -111,7 +110,11 @@
         document.getElementById("main").style.opacity = 1;
         document.getElementById("newpost").style.visibility = "hidden ";
         let register = this.$router.resolve('/newuser');
-        window.open(register.href, '_blank');
+        window.open(register.href);
+      },
+      message_box: function(){
+        let register = this.$router.resolve('/message');
+        window.open(register.href);
       }
     }
   }
