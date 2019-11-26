@@ -5,7 +5,8 @@
         <div class="icon">
         <i class='fa fa-user-plus'></i>
         </div>
-        <a class="closebtn"  @click="page_close">&times;</a>
+        <a class="closebtn" onmouseover="this.style.color='#ff2020'"
+           onmouseout="this.style.color='#000000'" @click="page_close">&times;</a>
         <form>
           <div class="form-group">
             <label for="user_name_input"> User Name</label>
@@ -46,7 +47,7 @@
     },
     methods: {
       page_close : function(){
-        window.open('','_self').close();
+        window.open('').close();
       }
     }
   }
@@ -54,6 +55,6 @@
 <style>
   @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-  @import '../css/registerstyle.css';
   @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+  @import '../css/registerstyle.css';
 </style>
