@@ -1,13 +1,35 @@
 <template>
   <div class="div1">
+    <div class = "main" id="main">
+      <div class="div2">
+        <div class="newpost_btn">
+          <i class="fa fa-plus" style="font-size:36px" @click="newpost_open"></i>
+        </div>
+        <div class="user_btn">
+          <i class="fa fa-user" style="font-size:40px;" @click="login_open"></i>
+        </div>
+        <div class="lock_btn">
+          <i class="fa fa-lock" style="font-size:40px;"></i>
+        </div>
+        <div class="message_btn">
+          <i class="fa fa-comment" style="font-size:38px" @click="message_box" ></i>
+        </div>
+        <div class ="search_btn">
+          <i class="fa fa-search" style="font-size:40px" @click="search_open"></i>
+        </div>
+      </div>
+      <div class="div3"></div>
+      <div class="div4"></div>
+      <div class="main_window"></div>
+    </div>
     <div id="login" class="login" @keydown.esc="login_close">
       <a class="closebtn"  @click="login_close">&times;</a>
       <a style="font-size:25px;margin-top: -67px;margin-left: 18px;font-family:'Comic Sans MS', cursive, sans-serif">Sign In</a>
       <a style="font-size: 9px;margin-top:75px;margin-left: 149px">Forget Password</a>
       <input type="email" class="login_email_input" id="login_email_input" placeholder="User email">
       <input type="password" class="login_password_input" placeholder="User password">
-      <div class="login_icon">
-      <i class="material-icons" style="font-size:36px">account_circle</i>
+      <div class="login_icon" style="background-color: #e2e2e2">
+      <i class="material-icons" style="font-size:36px; background-color: #e2e2e2">account_circle</i>
       </div>
       <button class="new_account_btn" @click="assign_new_account" >New Account</button>
       <button class="login_btn">Log In</button>
@@ -27,28 +49,7 @@
       <button class="post_photo_upload_btn">Select photo</button>
       <button class="post_submit_btn">Submit</button>
     </div>
-    <div class = "main" id="main">
-    <div class="div2"></div>
-    <div class="div3">
-      <div class="newpost_btn">
-        <i class="fa fa-plus" style="font-size:24px" @click="newpost_open"></i>
-      </div>
-      <div class="user_btn">
-        <i class="fa fa-user" style="font-size:36px;" @click="login_open"></i>
-      </div>
-      <div class="lock_btn">
-        <i class="fa fa-lock" style="font-size:36px;"></i>
-      </div>
-      <div class="message_btn">
-        <i class="fa fa-comment" style="font-size:34px;margin-left: 26px;margin-top: -9px;" @click="message_box" ></i>
-      </div>
-      <div class ="search_btn">
-        <i class="fa fa-search" style="font-size:30px" @click="search_open"></i>
-      </div>
-    </div>
-    <div class="main_window"></div>
-    <div class="div5"></div>
-    </div>
+
   </div>
 
 </template>
