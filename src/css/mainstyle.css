@@ -2,62 +2,248 @@ body{
   background-color: #ECECEC;
   margin:0;
   padding:0;
-  overflow:hidden;
+  overflow-x: auto;
 }
 div{
   border-width: 2px;
   border-color: #DCDAD8;
   background: #EEEEEE;
 }
-.div1{
-  height: 100vh;
-}
 .main{
   height: 100vh;
   opacity: 1;
   border-color: #DCDAD8;
 }
-.login{
-  visibility: hidden;
+.function_bar{
+  position: absolute;
+  border-style: groove;
+  height:121px;
+  width:31.5%;
 }
-.newpost{
-  visibility: hidden;
+
+.div3{
+  position: absolute;
+  border-style: groove;
+  height:50px;
+  width:68.8%;
+  margin-left: 31.4%;
 }
-.search{
-  visibility: hidden;
+
+.div4{
+  position: absolute;
+  border-style: groove;
+  float: left;
+  height:100vh;
+  width:31.5%;
+  margin-top: 119px;
+}
+.main_window{
+  position: absolute;
+  border-style: groove;
+  height: 100vh;
+  width:68.8%;
+  margin-left: 31.4%;
+  margin-top: 49px;
+  background-color: #DCDAD8;
 }
 .newpost_btn{
-  postion:fixed;
-  float:right;
-  margin-right:10px;
+   postion:fixed;
+   float:right;
+   margin-right:10px;
+ }
+.row {
+  position: absolute;
+  bottom:2px;
+  width: 95%;
+  left: 8%;
 }
-.user_btn{
-  postion:fixed;
-  margin-left: 10px;
-  margin-top: 80px;
-}
-.lock_btn{
-  postion:fixed;
-  margin-left: 92px;
-  margin-top: -38px;
 
-}
-.message_btn{
-  postion:fixed;
-  margin-top: -42px;
-  margin-left: 170px;
-}
 .search_btn{
   position: fixed;
   color: black;
   margin-top: -40px;
   margin-left: 255px;
 }
+.newpost{
+  visibility: hidden;
+  position: absolute;
+  height: 350px;
+  width: 35%;
+  border-radius: 3px;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  background-color: #e2e2e2;
+}
+.material-icons{
+  position:absolute;
+  top:5px;
+}
+.newpost_sign{
+  position: absolute;
+  left: 50px;
+  top:5px;
+  font-size:25px;
+  font-family:Comic Sans MS, cursive, sans-serif;
+}
+.topic_sign{
+  position:absolute;
+  top:50px;
+  left: 5px;
+  font-size:15px;
+  font-family:Comic Sans MS, cursive, sans-serif;
+}
+.newpost .topic_input{
+  position: absolute;
+  top:70px;
+  left: 5px;
+  width:300px;
+  postion: absolute;
+}
+.content_sign{
+  position: absolute;
+  font-size: 15px;
+  top:110px;
+  left:5px;
+  font-family:Comic Sans MS, cursive, sans-serif;
+}
+.newpost .cotent_input{
+  position: absolute;
+  top:130px;
+  left: 5px;
+  width:300px;
+  height:130px;
+  outline-width: 0;
+  overflow-x: hidden;
+}
+.newpost .closebtn{
+  position: absolute;
+  top:-30px;
+  left: 290px;
+  font-size: 40px;
+}
+.newpost .post_photo_upload_btn{
+  position: absolute;
+  top:270px;
+  left:190px;
+  width: 115px;
+  font-size: 12px;
+  font-family:'Comic Sans MS', cursive, sans-serif;
+}
+.newpost .post_submit_btn{
+  position: absolute;
+  top:300px;
+  left:190px;
+  width: 115px;
+  font-size: 12px;
+  font-family:'Comic Sans MS', cursive, sans-serif;
+}
+.function {
+  position: fixed;
+  width: 950px;
+  top: 50%;
+  left: 50%
+}
+.search {
+  border-radius: 3px;
+  height: 60px; /* 100% Full-height */
+  width: 50%;
+  position: absolute; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  transform: translate(-50%, -50%);
+  background-color: #EEEEEE; /* Black*/
+  visibility: hidden;
+}
+.search_input{
+  border-radius: 3px;
+  height: 53px; /* 100% Full-height */
+  width: 100%; /* 0 width - change this with JavaScript */
+  font-size: 49px;
+  background-color: #EEEEEE;
+  outline-width: 0;
+  position: absolute;
+}
+.search_input::placeholder {
+  position: absolute;
+  font-size: 20px;
+  margin-top: 40px;
+}
+.login {
+  position: absolute; /* Stay in place */
+  height:200px; /* 100% Full-height */
+  width: 251px; /* 0 width - change this with JavaScript */
+  border-radius: 3px;
+  z-index: 1;
+  background-color: #e2e2e2;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+.forgetpw{
+  position: absolute;
+  top:125px;
+  left:130px;
+}
+.login .new_account_btn{
+  position: absolute;
+  top:160px;
+  left:10px;
+  width:90px;
+  border-radius: 1px;
+  font-size: 12px;
+  outline-width: 0;
+  font-family:Comic Sans MS, cursive, sans-serif;
+}
+.login .login_btn{
+  position: absolute;
+  width:90px;
+  top: 160px;
+  left: 150px;
+  border-radius: 1px;
+  font-size: 12px;
+  outline-width: 0;
+  font-family:Comic Sans MS, cursive, sans-serif;
+}
+.login a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+.closebtn:hover {
+  color: #f1f1f1;
+}
+.login .closebtn {
+  position: absolute;
+  top: -15px;
+  right: -4px;
+  font-size: 40px;
+}
+.login_icon{
+  position: absolute;
+  top:10px;
+  left: 5px;
+}
+.login_email_input{
+  position: absolute;
+  top:60px;
+  left: 7px;
+  width: 232px;
+  border-radius: 3px;
+  outline-width: 0;
+}
+.login_password_input{
+  position: absolute;
+  top:100px;
+  left: 7px;
+  width: 232px;
+  border-radius: 3px;
+  outline-width: 0;
+}
 /*
   150% or smaller
 */
 
-@media (min-width: 1024px) {
+@media (min-width: 1025px) {
   .div1{
     margin: auto;
     width: 950px;
@@ -67,256 +253,197 @@ div{
     width: 950px;
     opacity: 1;
   }
-  .div2{
-    position: absolute;
-    border-style: groove;
-    height:120px;
-    width:300px;
-  }
-
-  .div3{
-    position: absolute;
-    border-style: groove;
-    height:50px;
-    width:646px;
-    margin-left: 302px;
-  }
-
-  .div4{
-    position: absolute;
-    border-style: groove;
-    float: left;
-    height:100vh;
-    width:300px;
-    margin-top: 120px;
-  }
-  .main_window{
-    position: absolute;
-    border-style: groove;
-    height: 100vh;
-    width:646px;
-    margin-left: 302px;
-    margin-top: 51px;
-    background-color: #DCDAD8;
-  }
-  nav{
-    margin-top: 50px;
-  }
-  .nav-item{
-    margin-left: -10px;
-    padding: 0 60px;
-  }
-  .search {
-    visibility: hidden;
-    border-radius: 3px;
-    height: 60px; /* 100% Full-height */
-    width: 505px; /* 0 width - change this with JavaScript */
-    position: absolute; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 40%; /* Stay at the top */
-    left: 38%;
-    background-color: #EEEEEE; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 2px;
-    padding-bottom:2px;
-    padding-left: 2px;
-    padding-right:2px;
-  }
-  .search_input{
-    visibility: hidden;
-    border-radius: 3px;
-    height: 53px; /* 100% Full-height */
-    width: 500px; /* 0 width - change this with JavaScript */
-    font-size: 49px;
-    background-color: #EEEEEE;
-    outline-width: 0;
-    position: absolute;
-  }
-  .search_input::placeholder {
-    position: absolute;
-    font-size: 20px;
-    margin-top: 40px;
-  }
-  .forgetpw{
-    font-size: 2px;
-  }
-  .new_account_btn{
-    postion: absolute;
-    margin-left: 37px;
-    border-radius: 1px;
-    font-size: 12px;
-    outline-width: 0;
-  }
-  .login_btn{
-    postion: absolute;
-    margin-left: 16px;
-    border-radius: 1px;
-    font-size: 12px;
-    outline-width: 0;
-  }
-  .newpost{
-    height: 300px; /* 100% Full-height */
-    width: 428px;/* 0 width - change this with JavaScript */
-    border-radius: 3px;
-    position: absolute; /* Stay in place */
-    z-index: 1;
-    top: 140px; /* Stay at the top */
-    left: 525px;
-    background-color: #e2e2e2;
-    padding-top: 60px;
-    visibility: hidden;
-  }
-  .newpost .closebtn{
-    position: absolute;
-    top: -1px;
-    right: 5px;
-    font-size: 26px;
-  }
-  .newpost .topic_input{
-    postion: relative;
-    margin-top: 5px;
-    font-size: 14px;
-    margin-left: 12px;
-    margin-bottom: 5px;
-    border-radius: 3px;
-    width: 400px;
-    outline-width: 0;
-  }
-  .newpost .cotent_input{
-    position: absolute;
-    font-size: 14px;
-    margin-top:25px;
-    margin-left: -54px;
-    border-radius: 3px;
-    width: 400px;
-    outline-width: 0;
-  }
-  .newpost .post_photo_upload_btn{
-    position: fixed;
-    margin-top:175px;
-    margin-left:260px;
-    border-radius: 3px;
-    outline-width: 0;
-    font-family:'Comic Sans MS', cursive, sans-serif;
-  }
-  .newpost .post_submit_btn{
-    position: fixed;
-    margin-top:210px;
-    margin-left:260px;
-    width:95px;
-    border-radius: 3px;
-    outline-width: 0;
-    font-family:'Comic Sans MS', cursive, sans-serif;
-  }
-  .login {
-    height:112px; /* 100% Full-height */
-    width: 251px; /* 0 width - change this with JavaScript */
-    border-radius: 3px;
-    position: absolute; /* Stay in place */
-    z-index: 1;
-    top: 40%; /* Stay at the top */
-    left: 45%;
-    background-color: #e2e2e2;
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px;
-    visibility: hidden;
-  }
-  /* The navigation menu links */
-  .login a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-
-  /* When you mouse over the navigation links, change their color */
-  .closebtn:hover {
-    color: #f1f1f1;
-  }
-
-  /* Position and style the close button (top right corner) */
-  .login .closebtn {
-    position: absolute;
-    top: -10px;
-    right: -4px;
-    font-size: 26px;
-  }
-  .login_icon{
-    position: absolute;
-    top:6px;
-    left: 5px;
-  }
-  .login_email_input{
-    position: absolute;
-    top:60px;
-    left: 7px;
-    width: 232px;
-    border-radius: 3px;
-    outline-width: 0;
-  }
-  .login_password_input{
-    position: absolute;
-    top:100px;
-    left: 7px;
-    width: 232px;
-    border-radius: 3px;
-    outline-width: 0;
+  .function{
+    position:fixed;
+    width:950px;
+    top:50%;
+    left:50%
   }
 }
-
 /*
-  175% - 500%
+  ##Device = Tablets, Ipads, large phone landscape
+  ##Screen = B/w 768px to 1024px 150%-200%
 */
-
-@media  screen and
-(min-width: 300px) and
-(max-width: 767px)
-{
-  }
-
-
-/*
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-
 @media only screen and
 (min-width: 768px)
 and (max-width: 1024px)
-and (orientation : portrait){
+{
+  .div1{
+    width:100%;
+    height:100vh;
+  }
+  .main{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  .function{
+    position:fixed;
+    width: 100%;
+  }
 }
-
 /*
-  ##Device =  6plus pixel x (Portrait)
+  ##Device =  5s,6 6plus(landscape)
   ##Screen = B/w 375px to 479px
 */
 @media only screen
-and (min-device-width : 400px)
-and (max-device-width : 414px)
-and (orientation : portrait){
+and (min-device-width : 576px)
+and (max-device-width: 767px)
+{
+  .function_bar{
+    width:100%;
+    height:12%;
+    bottom: 0px;
+    background-color: #ffe007;
+    border-style:none;
+  }
+  .div4 {
+    margin-top: 0px;
+    width: 100%;
+    height: 89%;
+  }
+  .newpost_btn{
+    margin-right: 3%;
+    margin-top:5px;
+    height: 90%;
+    background-color: #ffe007;
+  }
+  .row {
+    width:90%;
+    left:3%
+  }
+  .row .col-sm-3{
+    background-color: #ffe007;
+  }
 }
 /*
-  ##Device = 6plus pixel x (landscape)
-  ##Screen = B/w 320px to 479px
+  ##Device =  (Portrait)
+  ##Screen = B/w 375px to 479px
 */
 @media only screen
-and (min-device-width: 730px)
-and (max-device-width: 896px)
-and (orientation : landscape){
+and (max-device-width: 576px){
+  .function_bar{
+    width:100%;
+    height:8%;
+    bottom: 0px;
+    background-color: #ffe007;
+    border-style:none;
+  }
+  .div4 {
+    margin-top: 0px;
+    width: 100%;
+    height: 93%;
+  }
+  .newpost_btn{
+    margin-right: 3%;
+    margin-top:3%;
+    height: 90%;
+    background-color: #ffe007;
+  }
+  .row {
+    left:3%;
+    height:90%;
+    bottom: -15%;
+    overflow-x: visible;
+    width: 88%;
+    background-color: #ffe007;
+  }
+  .row .col-sm-3{
+    background-color: #ffe007;
+    font-size: 20px;
+    width: 25%;
+  }
+  .div3{
+    visibility: hidden;
+  }
+  .main_window{
+    visibility: hidden;
+  }
 }
-/*Old apple phone 5s 6 gs5 landscape */
+/* small phone */
 @media only screen
-and (min-device-width : 568px)
-and (max-device-width : 667px)
-and (orientation : landscape){
+and (max-device-width: 372px){
+  .function_bar{
+    width:100%;
+    height:8%;
+    bottom: 0px;
+    background-color: #ffe007;
+    border-style:none;
+  }
+  .div4 {
+    margin-top: 0px;
+    width: 100%;
+    height: 93%;
+  }
+  .newpost_btn{
+    margin-right: 1.5%;
+    margin-top:2%;
+    height: 90%;
+    background-color: #ffe007;
+  }
+  .row {
+    left:3%;
+    height:90%;
+    bottom: -2%;
+    overflow-x: visible;
+    width: 88%;
+    background-color: #ffe007;
+  }
+  .row .col-sm-3{
+    background-color: #ffe007;
+    font-size: 20px;
+    width: 25%;
+  }
+  .div3{
+    visibility: hidden;
+  }
+  .main_window{
+    visibility: hidden;
+  }
 }
-/*Old apple phone 5s 6 gs5 protrait */
-@media only screen
-and (min-device-width : 240px)
-and (max-device-width : 375px)
-and (orientation : portrait){
 
+/* smaller phone landscape*/
+@media only screen
+and (max-device-height: 410px)
+and (orientation: landscape){
+  .function_bar{
+    width:100%;
+    height:14%;
+    bottom: 0px;
+    background-color: #ffe007;
+    border-style:none;
+  }
+  .div4 {
+    margin-top: 0px;
+    width: 100%;
+    height: 87%;
+  }
+  .newpost_btn{
+    margin-right: 3%;
+    margin-top:1%;
+    height: 90%;
+    background-color: #ffe007;
+  }
+  .row {
+    left:3%;
+    height:90%;
+    bottom: -2%;
+    overflow-x: visible;
+    width: 88%;
+    background-color: #ffe007;
+  }
+  .row .col-sm-3{
+    background-color: #ffe007;
+    font-size: 20px;
+    width: 25%;
+  }
+  .div3{
+    visibility: hidden;
+  }
+  .main_window{
+    visibility: hidden;
+  }
 }
 
 
