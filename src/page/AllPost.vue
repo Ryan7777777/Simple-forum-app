@@ -80,7 +80,7 @@
             <textarea  v-model="content" class="cotent_input">
             </textarea>
             <button class="post_photo_upload_btn">Select photo</button>
-            <button class="post_submit_btn">Submit</button>
+            <button class="post_submit_btn" @click="new_post">Submit</button>
           </div>
         </div>
      </div>
@@ -92,19 +92,19 @@
     data() {
       return {
         action: false,
-        password:"",
-        email:"",
+        password: "",
+        email: "",
         topic: "",
-        content:"",
-        search:"",
+        content: "",
+        search: "",
         id: "",
         auth: "",
-        log:'false',
+        log: 'false',
       }
     },
     mounted: function () {
-     this.basedOnWindowWidth();
-     this.loaduser();
+      this.basedOnWindowWidth();
+      this.loaduser();
     },
     methods: {
       basedOnWindowWidth: function () {
@@ -119,8 +119,6 @@
           document.getElementById("login").style.visibility = "visible";
           document.getElementById("login_email_input").focus();
           document.getElementById("main").style.opacity = 0.6;
-        } else {
-          alert("User already login!");
         }
       },
       login_close: function () {
@@ -149,10 +147,14 @@
       },
       newpost_open: function () {
         if (this.action === false) {
+          if( localStorage.log === "true"){
           this.action = true;
           document.getElementById("newpost").style.visibility = "visible";
           document.getElementById("topic_input").focus();
           document.getElementById("main").style.opacity = 0.6;
+        }else{
+            this.login_open();
+          }
         }
       },
       newpost_close: function () {
@@ -182,29 +184,29 @@
           this.login_close();
         }
       },
-      loaduser: function(){
+      loaduser: function () {
         console.log(localStorage)
-       if(localStorage.log === 'true') {
-         this.log = 'true';
-         this.id = localStorage.userid;
-         this.auth = localStorage.auth;
-       }
+        if (localStorage.log === 'true') {
+          this.log = 'true';
+          this.id = localStorage.userid;
+          this.auth = localStorage.auth;
+        }
       },
       logout: function () {
-        if(localStorage.log == "true"){
+        if (localStorage.log == "true") {
           const auth = localStorage.auth;
-        this.$http.post('http://127.0.0.1:4255/api/v1/users/logout', {}, {headers: {'X-Authorization': auth}})
-          .then(function (response) {
-            localStorage.login = false;
-            localStorage.clear();
-            this.$router.go();
-          }, function (error) {
-            alert(error.statusText);
-            this.error = true;
-            this.errormessage = error.statusText;
-          });
-      } else{
-        alert("error")
+          this.$http.post('http://127.0.0.1:4255/api/v1/users/logout', {}, {headers: {'X-Authorization': auth}})
+            .then(function (response) {
+              localStorage.login = false;
+              localStorage.clear();
+              this.$router.go();
+            }, function (error) {
+              alert(error.statusText);
+              this.error = true;
+              this.errormessage = error.statusText;
+            });
+        } else {
+          alert("error")
         }
       },
       login: function () {
@@ -223,9 +225,25 @@
             this.error = true;
             this.errormessage = error.statusText;
           });
+      },
+      new_post: function(){
+        const auth = localStorage.auth;
+        console.log(this.topic,this.content)
+        this.$http.post('http://127.0.0.1:4255/api/v1/newpost',{
+          title:this.topic,
+          content: this.content,
+          },{headers: {'X-Authorization': auth}})
+          .then(function(responce){
+            console.log(responce);
+            alert('successful!');
+            this.newpost_close();
+          }, function(error){
+            alert(error.statusText);
+          });
       }
     }
   }
+
 </script>
 <style>
   @import '../css/mainstyle.css';
