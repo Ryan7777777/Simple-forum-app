@@ -2,65 +2,87 @@
   <div>
     <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
     <div class="div1">
-      <div class = "main" id="main">
-        <div class="function_bar">
-          <div class="newpost_btn">
-            <i class="fa fa-plus" style="font-size:44px" @click="newpost_open"></i>
+      <div class="desktop" v-if="$resize && $mq.above(765)">
+        <div class = "main" id="main">
+          <div class="function_bar">
+            <div class="newpost_btn">
+              <i class="fa fa-plus" style="font-size:44px" @click="newpost_open"></i>
+            </div>
+            <div class="row">
+              <div  class="col-sm-3">
+                <i   v-if="log==='true'"class="fa fa-user" style="font-size:40px;"></i>
+                <i  v-else class="fa fa-user" style="font-size:40px;" @click="login_open"></i>
+              </div>
+              <div class="col-sm-3">
+                <i class="fa fa-comment" style="font-size:40px; margin-top: -2px;" @click="message_box" ></i>
+              </div>
+              <div class ="col-sm-3">
+                <i class="fa fa-search" style="font-size:37px;margin-top: 1.5px;" @click="search_open"></i>
+              </div>
+              <div class="col-sm-3">
+                <i v-if="log==='true'" class="fa fa-sign-out" style="font-size:40px" @click="logout"></i>
+                <i v-else class="fa fa-sign-in" style="font-size:40px" @click="login_open"></i>
+              </div>
+            </div>
           </div>
-          <div class="row">
-            <div class="col-sm-3">
-              <i class="fa fa-user" style="font-size:40px;" @click="login_open"></i>
-            </div>
-            <div class="col-sm-3">
-              <i class="fa fa-lock" style="font-size:42px; margin-top: 2px"></i>
-            </div>
-            <div class="col-sm-3">
-              <i class="fa fa-comment" style="font-size:40px; margin-top: -2px" @click="message_box" ></i>
-            </div>
-            <div class ="col-sm-3">
-              <i class="fa fa-search" style="font-size:38px" @click="search_open"></i>
-            </div>
-          </div>
+          <div class="div4"></div>
+          <div class="div3"></div>
+          <div class="main_window"></div>
         </div>
-          <div class="div4">
-          </div>
-          <div class="desktop" v-if="$resize && $mq.above(768)">
-            <div class="div3"></div>
-            <div class="main_window"></div>
-          </div>
-          <div class="mobile" v-else>
-            <a>sss</a>
-          </div>
+      </div>
+      <div class="mobile" v-else>
+        <div class = "main" id="main">
+          <div class="div4"></div>
+            <div class="row">
+              <div class="col-sm">
+                <i   v-if="log==='true'"class="fa fa-user" style="font-size:40px;"></i>
+                <i  v-else class="fa fa-user" style="font-size:40px;" @click="login_open"></i>
+              </div>
+              <div class="col-sm">
+                <i class="fa fa-comment" style="font-size:40px; margin-top: -2px;" @click="message_box" ></i>
+              </div>
+              <div class="col-sm">
+                <i class="fa fa-plus" style="font-size:44px" @click="newpost_open"></i>
+              </div>
+              <div class ="col-sm">
+                <i class="fa fa-search" style="font-size:37px;margin-top: 1.5px;" @click="search_open"></i>
+              </div>
+              <div class="col-sm">
+                <i v-if="log==='true'" class="fa fa-sign-out" style="font-size:40px" @click="logout"></i>
+                <i v-else class="fa fa-sign-in" style="font-size:40px" @click="login_open"></i>
+              </div>
+            </div>
+        </div>
+      </div>
         <div class = "function" id="function">
           <div id="login" class="login" @keydown.esc="login_close">
             <i class="material-icons" style="font-size:36px; background-color: #e2e2e2;position:absolute;">account_circle</i>
             <a style="font-size:25px;margin-left: 18px;font-family:'Comic Sans MS', cursive, sans-serif">Sign In</a>
             <a class="closebtn"  @click="login_close">&times;</a>
             <a  class="forgetpw" style="font-size: 10px" >Forget Password</a>
-            <input type="email" class="login_email_input" id="login_email_input" placeholder="User email">
-            <input type="password" class="login_password_input" placeholder="User password">
+            <input v-model="email" type="email" class="login_email_input" id="login_email_input" placeholder="User email">
+            <input v-model="password" type="password" class="login_password_input" placeholder="User password">
             <div class="login_icon" style="background-color: #e2e2e2">
             </div>
             <button class="new_account_btn" @click="assign_new_account" >New Account</button>
-            <button class="login_btn">Log In</button>
+            <button type="button" class="login_btn" @click="login_checker">Log In</button>
           </div>
           <div id="search" class="search" @keydown.esc="search_close">
-            <input type="text" class="search_input" id="search_input"  name="search"  placeholder="Search..                              ESC to Exit   Enter to Search" @keydown.esc="search_close" >
+            <input type="text" v-model="search" class="search_input" id="search_input"  name="search"  placeholder="Search..                              ESC to Exit   Enter to Search" @keydown.esc="search_close" >
           </div>
           <div id="newpost" class="newpost" @keydown.esc="newpost_close">
             <a class="closebtn"  @click="newpost_close">&times;</a>
             <i class="material-icons" style="font-size: 40px" >library_add</i>
             <a class = "newpost_sign">New Post</a>
             <a class ="topic_sign">Topic</a>
-            <input id="topic_input" class="topic_input" type="text">
+            <input v-model="topic" id="topic_input" class="topic_input" type="text">
             <a class="content_sign">Content</a>
-            <textarea  class="cotent_input">
+            <textarea  v-model="content" class="cotent_input">
             </textarea>
             <button class="post_photo_upload_btn">Select photo</button>
             <button class="post_submit_btn">Submit</button>
           </div>
         </div>
-      </div>
      </div>
   </div>
 </template>
@@ -69,18 +91,27 @@
   export default {
     data() {
       return {
-        action: false
+        action: false,
+        password:"",
+        email:"",
+        topic: "",
+        content:"",
+        search:"",
+        id: "",
+        auth: "",
+        log:'false',
       }
     },
     mounted: function () {
      this.basedOnWindowWidth();
+     this.loaduser();
     },
     methods: {
-      basedOnWindowWidth:function(){
-        console.log (this.windowWidth,111);
+      basedOnWindowWidth: function () {
         if (this.windowWidth > 768) {
           return true;
-        } return false;
+        }
+        return false;
       },
       login_open: function () {
         if (this.action === false) {
@@ -88,12 +119,17 @@
           document.getElementById("login").style.visibility = "visible";
           document.getElementById("login_email_input").focus();
           document.getElementById("main").style.opacity = 0.6;
+        } else {
+          alert("User already login!");
         }
       },
       login_close: function () {
         this.action = false;
         document.getElementById("login").style.visibility = "hidden";
+        document.getElementById("login_email_input");
         document.getElementById("main").style.opacity = 1;
+        this.password = "";
+        this.email = "";
       },
       search_open: function () {
         if (this.action === false) {
@@ -109,6 +145,7 @@
         document.getElementById("search").style.visibility = "hidden ";
         document.getElementById("main").style.opacity = 1;
         document.getElementById("search_input").style.visibility = "hidden";
+        this.search = "";
       },
       newpost_open: function () {
         if (this.action === false) {
@@ -122,17 +159,70 @@
         this.action = false;
         document.getElementById("newpost").style.visibility = "hidden ";
         document.getElementById("main").style.opacity = 1;
+        this.topic = "";
+        this.content = "";
       },
-      assign_new_account: function(){
+      assign_new_account: function () {
         this.action = false;
         document.getElementById("main").style.opacity = 1;
         document.getElementById("newpost").style.visibility = "hidden ";
-        let register = this.$router.resolve('/newuser');
-        window.open(register.href);
+        this.$router.push('/newuser');
+        this.$router.go();
       },
-      message_box: function(){
+      message_box: function () {
         let register = this.$router.resolve('/message');
         window.open(register.href);
+      },
+      login_checker: function () {
+        if (this.password.length == 0 || this.email.length == 0) {
+          alert('please fill in all inputs');
+          this.password = "";
+        } else {
+          this.login();
+          this.login_close();
+        }
+      },
+      loaduser: function(){
+        console.log(localStorage)
+       if(localStorage.log === 'true') {
+         this.log = 'true';
+         this.id = localStorage.userid;
+         this.auth = localStorage.auth;
+       }
+      },
+      logout: function () {
+        if(localStorage.log == "true"){
+          const auth = localStorage.auth;
+        this.$http.post('http://127.0.0.1:4255/api/v1/users/logout', {}, {headers: {'X-Authorization': auth}})
+          .then(function (response) {
+            localStorage.login = false;
+            localStorage.clear();
+            this.$router.go();
+          }, function (error) {
+            alert(error.statusText);
+            this.error = true;
+            this.errormessage = error.statusText;
+          });
+      } else{
+        alert("error")
+        }
+      },
+      login: function () {
+        this.$http.post('http://127.0.0.1:4255/api/v1/users/login',
+          {
+            "password": this.password,
+            "email": this.email
+          })
+          .then(function (response) {
+            localStorage.userid = response.body.userId;
+            localStorage.auth = response.body.token;
+            localStorage.log = true;
+            this.$router.go();
+          }, function (error) {
+            alert(error.statusText);
+            this.error = true;
+            this.errormessage = error.statusText;
+          });
       }
     }
   }
@@ -142,5 +232,6 @@
   @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
   @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+  @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
 </style>
 
