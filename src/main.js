@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import {MediaQueries} from 'vue-media-queries';
+import VueResource from 'vue-resource';
 import App from './page/App.vue';
 import VueRouter from "vue-router";
 import Home from './page/AllPost';
@@ -10,6 +11,9 @@ const mediaQueries = new MediaQueries();
 Vue.use(mediaQueries);
 Vue.use(VueRouter);
 Vue.use(VueRecaptcha);
+Vue.use(VueResource);
+Vue . http . options . emulateJSON = false;
+Vue.config.productionTip = false;
 
 const routes = [{
   path : "/",
