@@ -36,6 +36,7 @@ div{
   height:100vh;
   width:31.5%;
   margin-top: 119px;
+  overflow-x: hidden;
 }
 .main_window{
   position: absolute;
@@ -237,6 +238,50 @@ div{
   width: 232px;
   border-radius: 3px;
   outline-width: 0;
+}
+.div4 .box{
+  padding: 3% 0%;
+  border-radius: 0;
+  border-bottom: 3px solid #b3b3b3;
+}
+.div4 .box:hover{
+  background-color: #a79fb4;
+}
+.box .post_author{
+  position: relative;
+  left: 5%;
+}
+.box .post_date{
+  position: relative;
+  left: 5%;
+}
+.box .post_title{
+  position: relative;
+  font-size: 20px;
+  left: 5%;
+}
+.main_window .main_window_box {
+  padding: 3% 0%;
+  border-radius: 0;
+  border-bottom: 3px solid #b3b3b3;
+}
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 /*
   150% or smaller

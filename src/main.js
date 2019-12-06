@@ -39,4 +39,33 @@ new Vue({
   mediaQueries: mediaQueries,
   render: h => h(App)
 });
-
+Vue.component('tweet-component', {
+  template: `  
+    <div class="tweet">
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+          </div>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>{{tweet}}</strong> <small>{{tweet}}</small>
+                <br>
+                {{tweet}}
+              </p>
+            </div>
+              <div class="level-left">
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                  <span class="likes">{{tweet}}</span>
+                </a>
+              </div>
+          </div>
+        </article>
+      </div>
+    </div> 
+`,
+  props: {
+    tweet: Object
+  }
+});

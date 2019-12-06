@@ -25,11 +25,21 @@
               </div>
             </div>
           </div>
-          <div class="div4"></div>
+          <div class="div4">
+            <div  class="box" v-for="p in this.postes" @click="loadpost(p.id)">
+              <a class="post_author">{{p.author}}</a>
+              <a class="post_date">{{p.date}}</a><br>
+              <a class="post_title">{{p.title}}</a>
+              </div>
+          </div>
           <div class="div3"></div>
-          <div class="main_window"></div>
-        </div>
+          <div class="main_window">
+            <div class="main_window_box" v-for="c in this.comments">
+              <a>{{c}}</a>
+            </div>
+          </div>
       </div>
+    </div>
       <div class="mobile" v-else>
         <div class = "main" id="main">
           <div class="div4"></div>
@@ -100,11 +110,14 @@
         id: "",
         auth: "",
         log: 'false',
+        postes: [],
+        comments:[]
       }
     },
     mounted: function () {
       this.basedOnWindowWidth();
       this.loaduser();
+      this.getpost();
     },
     methods: {
       basedOnWindowWidth: function () {
@@ -147,12 +160,12 @@
       },
       newpost_open: function () {
         if (this.action === false) {
-          if( localStorage.log === "true"){
-          this.action = true;
-          document.getElementById("newpost").style.visibility = "visible";
-          document.getElementById("topic_input").focus();
-          document.getElementById("main").style.opacity = 0.6;
-        }else{
+          if (localStorage.log === "true") {
+            this.action = true;
+            document.getElementById("newpost").style.visibility = "visible";
+            document.getElementById("topic_input").focus();
+            document.getElementById("main").style.opacity = 0.6;
+          } else {
             this.login_open();
           }
         }
@@ -226,23 +239,40 @@
             this.errormessage = error.statusText;
           });
       },
-      new_post: function(){
+      new_post: function () {
         const auth = localStorage.auth;
-        console.log(this.topic,this.content)
-        this.$http.post('http://127.0.0.1:4255/api/v1/newpost',{
-          title:this.topic,
+        console.log(this.topic, this.content)
+        this.$http.post('http://127.0.0.1:4255/api/v1/newpost', {
+          title: this.topic,
           content: this.content,
-          },{headers: {'X-Authorization': auth}})
-          .then(function(responce){
+        }, {headers: {'X-Authorization': auth}})
+          .then(function (responce) {
             console.log(responce);
             alert('successful!');
             this.newpost_close();
-          }, function(error){
+          }, function (error) {
             alert(error.statusText);
           });
+      },
+      getpost: function () {
+        this.$http.get('http://127.0.0.1:4255/api/v1/allpost')
+          .then(function (response) {
+            this.postes = response.data;
+          }, function (error) {
+            this.error = error;
+          });
+      },
+      loadpost: function(id){
+        this.$http.get('http://127.0.0.1:4255/api/v1/comment/'+id)
+        .then(function(response){
+          this.comments = response.data;
+        },function(error){
+          this.error = error;
+        });
       }
     }
   }
+
 
 </script>
 <style>
