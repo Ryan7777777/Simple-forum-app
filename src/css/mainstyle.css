@@ -286,6 +286,15 @@ div{
 /*
   150% or smaller
 */
+.div3 .back_arrow{
+  position: fixed;
+  height: 100%;
+  padding-bottom: 10px;
+
+}
+.div3 .back_arrow:hover{
+  background-color: #818181;
+}
 
 @media (min-width: 1025px) {
   .div1{
@@ -352,6 +361,8 @@ and (orientation: landscape )
     background-color: #ffe007;
   }
 }
+
+
 /*
   ##Device =  (Portrait)
   ##Screen = B/w 375px to 479px

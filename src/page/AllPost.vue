@@ -26,13 +26,18 @@
             </div>
           </div>
           <div class="div4">
-            <div  class="box" v-for="p in this.postes" @click="loadpost(p.id)">
+            <div  class="box" v-for="p in this.postes" @click="loadpost(p.id,p.title)">
               <a class="post_author">{{p.author}}</a>
               <a class="post_date">{{p.date}}</a><br>
               <a class="post_title">{{p.title}}</a>
               </div>
           </div>
-          <div class="div3"></div>
+          <div class="div3">
+            <div class="back_arrow">
+              <i class="fa fa-arrow-left" style="font-size: 20px;text-align: center;}" @click="clear_window"></i>
+            </div>
+            <a>{{title}}</a>
+          </div>
           <div class="main_window">
             <div class="main_window_box" v-for="c in this.comments">
               <a>{{c}}</a>
@@ -111,7 +116,8 @@
         auth: "",
         log: 'false',
         postes: [],
-        comments:[]
+        comments:[],
+        title: ""
       }
     },
     mounted: function () {
@@ -176,6 +182,10 @@
         document.getElementById("main").style.opacity = 1;
         this.topic = "";
         this.content = "";
+      },
+      clear_window: function(){
+        this.comments = [];
+        this.title="";
       },
       assign_new_account: function () {
         this.action = false;
@@ -262,7 +272,8 @@
             this.error = error;
           });
       },
-      loadpost: function(id){
+      loadpost: function(id,title){
+        this.title = title;
         this.$http.get('http://127.0.0.1:4255/api/v1/comment/'+id)
         .then(function(response){
           this.comments = response.data;
