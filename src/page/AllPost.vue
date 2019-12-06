@@ -34,9 +34,9 @@
           </div>
           <div class="div3">
             <div class="back_arrow">
-              <i class="fa fa-arrow-left" style="font-size: 20px;text-align: center;}" @click="clear_window"></i>
+              <i class="fa fa-arrow-left"  @click="clear_window"></i>
             </div>
-            <a>{{title}}</a>
+            <a class="title">{{title}}</a>
           </div>
           <div class="main_window">
             <div class="main_window_box" v-for="c in this.comments">

@@ -9,6 +9,9 @@ div{
   border-color: #DCDAD8;
   background: #EEEEEE;
 }
+a{
+  font-family:Comic Sans MS, cursive, sans-serif;
+}
 .main{
   height: 100vh;
   opacity: 1;
@@ -46,6 +49,7 @@ div{
   margin-left: 31.4%;
   margin-top: 49px;
   background-color: #DCDAD8;
+  overflow-x: hidden;
 }
 .newpost_btn{
    postion:fixed;
@@ -288,14 +292,30 @@ div{
 */
 .div3 .back_arrow{
   position: fixed;
-  height: 100%;
+  top: 1.7px;
+  margin-left: -1px;
+  float: left;
+  height: 46px;
+  width: 50px;
   padding-bottom: 10px;
-
 }
 .div3 .back_arrow:hover{
   background-color: #818181;
 }
-
+.div3 .back_arrow .fa-arrow-left{
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  margin-right: -40%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+.title{
+  position: fixed;
+  margin-left: 55px;
+  margin-top: 10px;
+  font-size: 20px;
+}
 @media (min-width: 1025px) {
   .div1{
     margin: auto;
