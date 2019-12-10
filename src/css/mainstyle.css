@@ -272,7 +272,7 @@ a{
 }
 .main_window .comment_author{
   position: relative;
-  left: 10%;
+  left: 7%;
 }
 .main_window .comment_time{
   position: relative;
@@ -288,7 +288,11 @@ a{
   word-break:break-all;
   white-space: pre-wrap;
   word-wrap: break-word;
-  background-color: #ffe007;
+}
+
+.main_window i{
+  position: relative;
+  left:15%;
 }
 
 /* Scrollbar */
@@ -309,11 +313,8 @@ a{
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-/*
-  150% or smaller
-*/
 .div3 .back_arrow{
-  position: fixed;
+  position: fixed;;
   top: 1.7px;
   margin-left: -1px;
   float: left;
@@ -328,9 +329,15 @@ a{
   position: absolute;
   top: 50%;
   left: 45%;
-  margin-right: -40%;
   transform: translate(-50%, -50%);
   font-size: 30px;
+}
+.div3 .reply_post{
+  position:absolute;
+  font-size: 25px;
+  top:50%;
+  transform: translate(-50%, -50%);
+  right:-0.5%;
 }
 .title{
   position: fixed;

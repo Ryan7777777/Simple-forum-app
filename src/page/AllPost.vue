@@ -33,16 +33,24 @@
               </div>
           </div>
           <div class="div3">
-            <div class="back_arrow">
-              <i class="fa fa-arrow-left"  @click="clear_window"></i>
+            <div v-if="post_open == true">
+              <div class="back_arrow">
+                <i class="fa fa-arrow-left"  id="arrow" @click="clear_window"></i>
+              </div>
+              <a class="title">{{title}}</a>
+              <div class="reply_post" id="reply_post">
+                <i v-b-tooltip="'Make a new comment'" variant="outline-success" class="fa fa-mail-reply"></i>
+              </div>
             </div>
-            <a class="title">{{title}}</a>
           </div>
           <div class="main_window">
             <div class="main_window_box" v-for="c in splitline">
+              <i v-b-tooltip="'Reply this comment'" id="new_comment" variant="outline-success" class="fa fa-mail-reply"></i>
               <a class="comment_author">{{c.user}}</a>
               <a class="comment_time">{{c.date}}</a>
-              <div v-for="code in c.content" class="content_content">{{code}}</div>
+              <div  class="content_content">
+                <div v-for="code in c.content">{{code}}</div>
+              </div>
             </div>
           </div>
       </div>
@@ -120,7 +128,7 @@
         postes: [],
         comments:[],
         title: "",
-        tt: 'fafda\nsfasf'
+        post_open: false
       }
     },
     mounted: function () {
@@ -189,6 +197,7 @@
       clear_window: function(){
         this.comments = [];
         this.title="";
+        this.post_open =false;
       },
       assign_new_account: function () {
         this.action = false;
@@ -286,6 +295,7 @@
             response.data[index].date = time;
           }
           this.comments = response.data;
+          this.post_open = true;
         },function(error){
           this.error = error;
         });
@@ -324,6 +334,6 @@
   @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
   @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
   @import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
-  @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css';
+  @import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css';
 </style>
 
