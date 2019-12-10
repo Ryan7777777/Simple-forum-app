@@ -255,9 +255,9 @@ a{
   position: relative;
   left: 5%;
 }
-.box .post_date{
+.box .post_date {
   position: relative;
-  left: 5%;
+  float: right;
 }
 .box .post_title{
   position: relative;

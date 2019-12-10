@@ -265,8 +265,14 @@
           });
       },
       getpost: function () {
+        var index = 0;
         this.$http.get('http://127.0.0.1:4255/api/v1/allpost')
           .then(function (response) {
+            for (var index=0; index< response.data.length; index++){
+              var time = this.lastupdatetime(response.data[index].date);
+              response.data[index].date =time
+            }
+            console.log(response.data[index]);
             this.postes = response.data;
           }, function (error) {
             this.error = error;
@@ -280,6 +286,23 @@
         },function(error){
           this.error = error;
         });
+      },
+      lastupdatetime: function(time){
+        var now =  new Date;
+        var post = new Date(time);
+        var differentmin = (this.differenmin(post.getTime(),now.getTime()));
+        if (differentmin <60){
+          return (Math.round(differentmin)+" mins ago");
+        } else if(differentmin/60<24){
+          return (Math.round(differentmin/60) +" hours ago");
+        } else{
+          return (Math.round(differentmin/(60*24))+" days ago");
+        }
+      },
+      differenmin: function(posttime,now){
+        var different = (now-posttime)/1000;
+        different /=(60);
+        return different;
       }
     }
   }
