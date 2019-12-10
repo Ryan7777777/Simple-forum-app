@@ -39,8 +39,10 @@
             <a class="title">{{title}}</a>
           </div>
           <div class="main_window">
-            <div class="main_window_box" v-for="c in this.comments">
-              <a>{{c}}</a>
+            <div class="main_window_box" v-for="c in splitline">
+              <a class="comment_author">{{c.user}}</a>
+              <a class="comment_time">{{c.date}}</a>
+              <div v-for="code in c.content" class="content_content">{{code}}</div>
             </div>
           </div>
       </div>
@@ -117,7 +119,8 @@
         log: 'false',
         postes: [],
         comments:[],
-        title: ""
+        title: "",
+        tt: 'fafda\nsfasf'
       }
     },
     mounted: function () {
@@ -208,7 +211,6 @@
         }
       },
       loaduser: function () {
-        console.log(localStorage)
         if (localStorage.log === 'true') {
           this.log = 'true';
           this.id = localStorage.userid;
@@ -251,13 +253,11 @@
       },
       new_post: function () {
         const auth = localStorage.auth;
-        console.log(this.topic, this.content)
         this.$http.post('http://127.0.0.1:4255/api/v1/newpost', {
           title: this.topic,
           content: this.content,
         }, {headers: {'X-Authorization': auth}})
           .then(function (responce) {
-            console.log(responce);
             alert('successful!');
             this.newpost_close();
           }, function (error) {
@@ -268,11 +268,10 @@
         var index = 0;
         this.$http.get('http://127.0.0.1:4255/api/v1/allpost')
           .then(function (response) {
-            for (var index=0; index< response.data.length; index++){
+            for (var index = 0; index < response.data.length; index++){
               var time = this.lastupdatetime(response.data[index].date);
-              response.data[index].date =time
+              response.data[index].date = time
             }
-            console.log(response.data[index]);
             this.postes = response.data;
           }, function (error) {
             this.error = error;
@@ -282,6 +281,10 @@
         this.title = title;
         this.$http.get('http://127.0.0.1:4255/api/v1/comment/'+id)
         .then(function(response){
+          for (var index = 0; index<response.data.length; index++){
+            var time = this.lastupdatetime(response.data[index].date);
+            response.data[index].date = time;
+          }
           this.comments = response.data;
         },function(error){
           this.error = error;
@@ -303,6 +306,13 @@
         var different = (now-posttime)/1000;
         different /=(60);
         return different;
+      }
+    },
+    computed:{
+      splitline: function(){
+        var newArr = this.comments;
+        newArr.map(el=>{el.content=el.content.split("\\n")});
+        return newArr
       }
     }
   }

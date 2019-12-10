@@ -265,10 +265,32 @@ a{
   left: 5%;
 }
 .main_window .main_window_box {
+  position:relative;
   padding: 3% 0%;
   border-radius: 0;
   border-bottom: 3px solid #b3b3b3;
 }
+.main_window .comment_author{
+  position: relative;
+  left: 10%;
+}
+.main_window .comment_time{
+  position: relative;
+  float: right;
+  right:5%
+}
+.main_window .content_content {
+  position: relative;
+  margin-top: 3%;
+  font-size: 20px;
+  left: 10%;
+  width:85%;
+  word-break:break-all;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: #ffe007;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
