@@ -7,11 +7,15 @@ import Home from './page/AllPost';
 import Register from './page/Register';
 import VueRecaptcha from 'vue-recaptcha'
 import Message from "./page/Message";
+import BootstrapVue from "bootstrap-vue";
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 const mediaQueries = new MediaQueries();
 Vue.use(mediaQueries);
 Vue.use(VueRouter);
 Vue.use(VueRecaptcha);
 Vue.use(VueResource);
+Vue.use(BootstrapVue);
 Vue . http . options . emulateJSON = false;
 Vue.config.productionTip = false;
 
@@ -69,3 +73,4 @@ Vue.component('tweet-component', {
     tweet: Object
   }
 });
+
